@@ -3,11 +3,11 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2755"]
-                 [figwheel "0.2.3-SNAPSHOT"]]
+                 [org.clojure/clojurescript "0.0-3190"]
+                 [figwheel "0.2.5-SNAPSHOT"]]
 
   :plugins [[lein-cljsbuild "1.0.4"]
-            [lein-figwheel "0.2.3-SNAPSHOT"]]
+            [lein-figwheel "0.2.5-SNAPSHOT"]]
 
   :source-paths ["src"]
 
