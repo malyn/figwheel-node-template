@@ -1,8 +1,6 @@
 /classes/
 /lib/
 /node_modules/
-/out.dev/
-/out.prod/
 /target/
 *.jar
 .lein-deps-sum

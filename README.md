@@ -30,7 +30,7 @@ $ lein figwheel
 Start Node.js in another terminal window:
 
 ```sh
-$ node figwheel.js
+$ node target/server_dev/hello_world.js
 ```
 
 Changes to your source files will trigger incremental compilation.  See

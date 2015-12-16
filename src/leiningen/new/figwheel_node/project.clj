@@ -2,25 +2,27 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
 
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.122"]
-                 [figwheel "0.4.0"]]
+  :min-lein-version "2.5.3"
 
-  :plugins [[lein-cljsbuild "1.1.0"]
-            [lein-figwheel "0.4.0"]]
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "1.7.170"]]
+
+  :plugins [[lein-cljsbuild "1.1.1"]
+            [lein-figwheel "0.5.0-2"]]
 
   :source-paths ["src"]
 
-  :clean-targets ["out.dev"
-                  "out.prod"
-                  "server.js"]
+  :clean-targets ["server.js"
+                  "target"]
 
   :cljsbuild {
     :builds [{:id "dev"
-              :source-paths ["src" "src.dev"]
+              :source-paths ["src"]
+              :figwheel true
               :compiler {
-                :output-to "out.dev/{{sanitized}}.js"
-                :output-dir "out.dev"
+                :main {{name}}.core
+                :output-to "target/server_dev/{{sanitized}}.js"
+                :output-dir "target/server_dev"
                 :target :nodejs
                 :optimizations :none
                 :source-map true}}
@@ -28,6 +30,6 @@
               :source-paths ["src"]
               :compiler {
                 :output-to "server.js"
-                :output-dir "out.prod"
+                :output-dir "target/server_prod"
                 :target :nodejs
                 :optimizations :simple}}]})
