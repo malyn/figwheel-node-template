@@ -2,13 +2,13 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
 
-  :min-lein-version "2.5.3"
+  :min-lein-version "2.7.1"
 
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.170"]]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.908"]]
 
-  :plugins [[lein-cljsbuild "1.1.1"]
-            [lein-figwheel "0.5.0-2"]]
+  :plugins [[lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
+            [lein-figwheel "0.5.13"]]
 
   :source-paths ["src"]
 
@@ -21,15 +21,21 @@
               :figwheel true
               :compiler {
                 :main {{name}}.core
-                :output-to "target/server_dev/{{sanitized}}.js"
-                :output-dir "target/server_dev"
+                :asset-path "target/js/compiled/dev"
+                :output-to "target/js/compiled/{{sanitized}}.js"
+                :output-dir "target/js/compiled/dev"
                 :target :nodejs
                 :optimizations :none
-                :source-map true}}
+                :source-map-timestamp true}}
              {:id "prod"
               :source-paths ["src"]
               :compiler {
                 :output-to "server.js"
-                :output-dir "target/server_prod"
+                :output-dir "target/js/compiled/prod"
                 :target :nodejs
-                :optimizations :simple}}]})
+                :optimizations :simple}}]}
+
+  :profiles {:dev {:dependencies [[figwheel-sidecar "0.5.13"]
+                                  [com.cemerick/piggieback "0.2.2"]]
+                   :source-paths ["src" "dev"]
+                   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}})

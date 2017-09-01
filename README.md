@@ -38,6 +38,18 @@ the [Figwheel docs][] for more information.
 
 [Figwheel docs]: https://github.com/bhauman/lein-figwheel
 
+Figwheel now exposes an nREPL endpoint, which means that you can use
+Figwheel with tools like
+[vim-fireplace](https://github.com/tpope/vim-fireplace).  Here is how
+you start a `figwheel-node` project and connect to it from
+`vim-fireplace` (using the `hello-world` sample from above):
+
+1. `lein repl`
+2. `(fig-start)`
+3. `(cljs-repl)`
+4. (In another window) `node target\js\compiled\hello_world.js ...`
+5. (In Vim) `:Piggieback (figwheel-sidecar.repl-api/repl-env)`
+
 
 ## Production
 
@@ -71,7 +83,7 @@ environments.
 
 ## License
 
-Copyright © 2015 Michael Alyn Miller
+Copyright © 2015-2017 Michael Alyn Miller
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.

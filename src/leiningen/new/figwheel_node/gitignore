@@ -6,5 +6,6 @@
 .lein-deps-sum
 .lein-repl-history
 .lein-plugins/
+.nrepl-port
 figwheel_server.log
 pom.xml

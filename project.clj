@@ -1,4 +1,4 @@
-(defproject figwheel-node/lein-template "0.1.2"
+(defproject figwheel-node/lein-template "0.1.3"
   :description "Leiningen template for Figwheel and Node.js"
   :url "https://github.com/malyn/figwheel-node-template"
   :license {:name "Eclipse Public License"
